@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, current_app
 from .summary import get_video_id, get_subtitles, summarize_text
 
 main = Blueprint('main', __name__)
@@ -11,7 +11,7 @@ def index():
 def summary():
     data = request.get_json()
     url = data['url']
-    api_key = 'YOUR_YOUTUBE_API_KEY'
+    api_key = current_app.config['YOUTUBE_API_KEY']
     video_id = get_video_id(url)
     subtitles = get_subtitles(video_id, api_key)
     if subtitles:
