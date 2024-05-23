@@ -1,5 +1,5 @@
-Flask
-requests
-transformers
-torch
-python-dotenv
+Flask==2.0.1
+requests==2.25.1
+transformers==4.6.1
+torch==1.8.1
+python-dotenv==0.17.1
